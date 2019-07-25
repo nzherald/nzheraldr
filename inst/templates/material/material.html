@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"$if(lang)$ lang="$lang$" xml:lang="$lang$"$endif$>
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="pandoc" />
+
+    $for(author-meta)$
+    <meta name="author" content="$author-meta$" />
+    $endfor$
+
+    $if(date-meta)$
+    <meta name="date" content="$date-meta$" />
+    $endif$
+
+    <title>$if(title-prefix)$$title-prefix$ - $endif$$pagetitle$</title>
+    <!-- Material Design fonts -->
+    $for(header-includes)$
+    $header-includes$
+    $endfor$
+
+    $if(highlightjs)$
+    <style type="text/css">code{white-space: pre;}</style>
+    <link rel="stylesheet"
+          href="$highlightjs$/$if(highlightjs-theme)$$highlightjs-theme$$else$default$endif$.css"
+          $if(html5)$$else$type="text/css" $endif$/>
+    <script src="$highlightjs$/highlight.js"></script>
+    <style type="text/css">
+pre:not([class]) {
+  background-color: white;
+}
+    </style>
+    <script type="text/javascript">
+      if (window.hljs && document.readyState && document.readyState === "complete") {
+        window.setTimeout(function() {
+          hljs.initHighlighting();
+        }, 0);
+      }
+    </script>
+    $endif$
+
+    $if(highlighting-css)$
+    <style type="text/css">code{white-space: pre;}</style>
+    <style type="text/css">
+$highlighting-css$
+    </style>
+    $endif$
+
+    $for(css)$
+    <link rel="stylesheet" href="$css$" $if(html5)$$else$type="text/css" $endif$/>
+    $endfor$
+
+
+    <!-- code folding -->
+    $if(code_folding)$
+    <script>
+    </script>
+    $endif$
+
+
+  </head>
+
+  <body>
+
+    <aside class="mdc-drawer mdc-drawer--dismissible">
+      <div class="mdc-drawer__content">
+        <h2>$title$</h2>
+        $if(subtitle)$<h3>$subtitle$</h3>$endif$
+        <div class="mdc-list">
+        </div>
+          <div id="__tocwrapper">
+            $toc$
+          </div>
+      </div>
+    </aside>
+
+    <div class="mdc-drawer-app-content">
+      <header class="mdc-top-app-bar app-bar" id="app-bar">
+        <div class="mdc-top-app-bar__row">
+          <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+            <a href="#" class="demo-menu material-icons mdc-top-app-bar__navigation-icon">menu</a>
+            $if(title)$
+            <span class="mdc-top-app-bar__title">$title$  $if(date)$$date$$endif$</span>
+              $for(author)$
+              $if(author.name)$
+              <h4 class="author">$author.name$</h4>
+              $if(author.affiliation)$
+              <address class="author_afil">
+                $author.affiliation$<br>$endif$
+                $if(author.email)$
+                <a class="author_email" href="mailto:#">$author.email$</a>
+              </address>
+              $endif$
+              $else$
+              <h4 class="author">$author$</h4>
+              $endif$
+              $endfor$
+              
+            $endif$
+
+
+            $if(code_folding)$
+            $endif$
+
+          </section>
+        </div>
+      </header>
+
+      <main class="main-content" id="main-content">
+        <div class="mdc-top-app-bar--fixed-adjust">
+          <div class="central-content">
+
+
+          $for(include-before)$
+          $include-before$
+          $endfor$
+
+
+          $body$
+
+          $for(include-after)$
+          $include-after$
+          $endfor$
+          </div>
+
+        </div>
+      </main>
+    </div>
+
+    <script>
+      init()
+    </script>
+
+  </body>
+</html>

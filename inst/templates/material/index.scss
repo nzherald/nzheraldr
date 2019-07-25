@@ -1,0 +1,85 @@
+
+
+@import url('https://fonts.googleapis.com/css?family=Material+Icons');
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:300,400,500');
+$mdc-typography-font-family: unquote("'Work Sans', sans-serif");
+
+
+$mdc-shape-small-component-radius: 12px;
+$mdc-shape-medium-component-radius: 8px;
+$mdc-shape-large-component-radius: 4px;
+
+$mdc-theme-primary: #111617;
+$mdc-theme-secondary: #ECAC0E;
+
+$mdc-theme-surface: #EEE9E8;
+// $mdc-theme-background: #ffffff;
+$mdc-theme-error: #ec4b24;
+
+
+@import "@material/button/mdc-button";
+@import "@material/top-app-bar/mdc-top-app-bar";
+@import "@material/icon-button/mdc-icon-button";
+@import "@material/typography/mdc-typography";
+@import "@material/drawer/mdc-drawer";
+@import "@material/list/mdc-list";
+@import "@material/elevation/mdc-elevation";
+@import "@material/card/mdc-card";
+@import "@material/shape/mixins";
+@import "@material/shape/functions";
+
+
+body {
+  font-family: 'Work Sans';
+  display: flex;
+  margin: 0;
+}
+
+.mdc-drawer-app-content {
+  flex: auto;
+  overflow: auto;
+  position: relative;
+}
+
+.main-content {
+  overflow: auto;
+  height: 100%;
+  .central-content {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 10px 15px;
+    p {
+      max-width: 700px;
+    }
+    div.sourceCode {
+      padding: 10px;
+      @include mdc-elevation(1);
+      @include mdc-shape-radius($mdc-shape-medium-component-radius);
+    }
+    .figure {
+      padding: 16px;
+      width: fit-content;
+      @include mdc-elevation(4);
+    }
+  }
+}
+
+.app-bar {
+  position: absolute;
+}
+
+// only apply this style if below top app bar
+.mdc-top-app-bar {
+  z-index: 7;
+  a {
+    text-decoration: none;
+  }
+}
+
+aside {
+  height: 100%;
+  h2 {
+    text-align: center;
+  }
+}
+
